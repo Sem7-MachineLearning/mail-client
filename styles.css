@@ -10,6 +10,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 100vh;
 }
 
@@ -19,6 +20,14 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
   width: 400px;
+  text-align: center;
+}
+
+.container-show {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
   text-align: center;
 }
 
@@ -112,4 +121,38 @@ button:hover {
 
 .hidden {
   display: none;
+}
+
+.page-btn {
+  margin-top: 40px;
+}
+
+.page-btn a {
+  text-decoration: none;
+}
+
+.page-btn a button {
+  padding: 12px 32px;
+  background-color: #333333;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.page-btn a button:hover {
+  cursor: pointer;
+}
+
+.info {
+  margin-top: 28px;
+}
+
+img {
+  height: 400px;
+}
+
+.perf {
+  margin-top: 4px;
+  font-size: 18px;
+  font-weight: 500;
 }
