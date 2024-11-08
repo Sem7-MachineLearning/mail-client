@@ -1,10 +1,10 @@
-const emailSubject = document.getElementById("subject")
+const emailSubject = document.getElementById("subject");
 const emailBody = document.getElementById("emailBody");
 const charCount = document.getElementById("charCount");
 const resultDiv = document.getElementById("result");
 
 emailBody.addEventListener("input", () => {
-  charCount.textContent = `${emailBody.value.length}/3000 chars`;
+  charCount.textContent = `${emailBody.value.length}/1000 chars`;
 });
 
 async function detectSpam() {
@@ -18,7 +18,7 @@ async function detectSpam() {
     body: body,
   };
   
-  await fetch('http://103.59.94.65/predict', {
+  await fetch('http://103.76.120.138/predict', {
     method: "POST",
     headers: {
       'Content-Type': 'application/json',
@@ -43,4 +43,11 @@ async function detectSpam() {
     resultDiv.textContent = "This email is a ham!";
     resultDiv.classList.add("ham");
   }
+}
+
+function clearForm() {
+  document.getElementById("subject").value = '';
+  document.getElementById("emailBody").value = '';
+  charCount.textContent = '0/1000 chars';
+  resultDiv.classList.add("hidden");
 }
