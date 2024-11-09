@@ -156,3 +156,9 @@ img {
   font-size: 18px;
   font-weight: 500;
 }
+
+#res-img {
+  margin-top: 12px;
+  width: 300px;
+  height: 300px;
+}

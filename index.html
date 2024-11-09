@@ -24,9 +24,13 @@
           <i class="fas fa-trash"></i>
         </button>
         <button type="button" class="detect-btn" onclick="detectSpam()">Detect</button>
+        <p id="loading"></p>
       </div>
     </form>
-    <div id="result" class="hidden"></div>
+    <div id="result" class="hidden">
+      <p id="res-text">This email is a spam</p>
+      <img id="res-img" src="assets/confusion_matrix.png" alt="">
+    </div>
   </div>
 
   <div class="page-btn">
