@@ -32,7 +32,9 @@ async function detectSpam() {
     subject: subject,
     body: body,
   };
-  
+
+  let isSuccess;
+
   await fetch(`${BE_URL}/predict`, {
     method: "POST",
     headers: {
@@ -47,19 +49,25 @@ async function detectSpam() {
     isSpam = data.prediction;
     resImgDiv.setAttribute("src", `${BE_URL}/result/${data.image_name}.png`)
     loadingText.innerText = null;
+    isSuccess = true;
   })
   .catch(function (err) {
-    console.error(err);
+    isSuccess = false;
+    alert(err);
   });
 
-  resultDiv.classList.remove("hidden", "spam", "ham");
-  if (isSpam) {
-    resTextDiv.textContent = "This email is a spam!";
-    resultDiv.classList.add("spam");
-  } else {
-    resTextDiv.textContent = "This email is a ham!";
-    resultDiv.classList.add("ham");
+  if (isSuccess) {
+    resultDiv.classList.remove("hidden", "spam", "ham");
+    if (isSpam) {
+      resTextDiv.textContent = "This email is a spam!";
+      resultDiv.classList.add("spam");
+    } else {
+      resTextDiv.textContent = "This email is a ham!";
+      resultDiv.classList.add("ham");
+    }
   }
+
+  loadingText.innerText = "";
 }
 
 function clearForm() {
