@@ -45,7 +45,7 @@ async function detectSpam() {
   }
   ).then(function (data) {
     isSpam = data.prediction;
-    resImgDiv.setAttribute("src", `${BE_URL}/${data.image_name}.png`)
+    resImgDiv.setAttribute("src", `${BE_URL}/result/${data.image_name}.png`)
     loadingText.innerText = null;
   })
   .catch(function (err) {
